@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer API | ibingod Trade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0b1120] text-slate-300 font-sans">
+
+    <nav class="p-4 border-b border-slate-800 bg-[#0f172a] flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-3 h-3 bg-blue-500 rounded-sm"></div>
+            <h1 class="text-sm font-mono font-bold tracking-tighter text-white uppercase">ibingod_API_v3.0</h1>
+        </div>
+        <div class="flex gap-4">
+            <a href="products.html" class="text-xs hover:text-white transition">Exit Docs</a>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto py-12 px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <aside class="space-y-6">
+            <div>
+                <h4 class="text-xs font-bold text-slate-500 uppercase mb-4">Authentication</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="text-blue-400">API Keys</li>
+                    <li class="hover:text-white cursor-pointer">Rate Limits</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-slate-500 uppercase mb-4">Endpoints</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="hover:text-white cursor-pointer">/v1/intensity-index</li>
+                    <li class="hover:text-white cursor-pointer">/v1/ticker-velocity</li>
+                    <li class="hover:text-white cursor-pointer">/v1/compliance-alerts</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="lg:col-span-2">
+            <header class="mb-10">
+                <h2 class="text-3xl font-bold text-white mb-4">Institutional Data Feed</h2>
+                <p class="text-slate-400">Connect the Ibingod Trade Intensity Index directly to your Python, Excel, or Bloomberg Terminal environments.</p>
+            </header>
+
+            <div class="bg-[#1e293b] border border-blue-500/30 p-6 rounded-xl mb-12">
+                <h3 class="text-sm font-bold text-white mb-2">Your Production API Key</h3>
+                <div class="flex gap-2">
+                    <input type="password" readonly value="ib_live_999_xK29vLpQz7mN" class="w-full bg-[#0b1120] border border-slate-700 rounded px-3 py-2 text-xs font-mono text-blue-400">
+                    <button class="bg-blue-600 px-4 py-2 rounded text-xs font-bold text-white">Reveal</button>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-3 italic">Enterprise License: Valid through March 2027</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-4">Request Example (Python)</h3>
+            <div class="bg-[#0b1120] p-6 rounded-xl border border-slate-800 font-mono text-xs overflow-x-auto">
+                <pre class="text-blue-300">import requests
+
+url = "https://api.ibingodtrade.com/v1/intensity-index"
+headers = {"Authorization": "Bearer YOUR_API_KEY"}
+
+response = requests.get(url, headers=headers)
+data = response.json()
+
+print(f"Current Trade Intensity: {data['global_index']}%")</pre>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mt-10 mb-4">Response Schema</h3>
+            <div class="bg-[#1e293b] p-6 rounded-xl border border-slate-800 font-mono text-xs">
+                <pre class="text-green-400">{
+  "timestamp": "2026-03-14T09:30:00Z",
+  "global_index": 114.2,
+  "status": "bullish_volatility",
+  "top_movers": [
+    {"ticker": "MAERSK-B", "intensity": 128.5},
+    {"ticker": "ZIM", "intensity": 109.1}
+  ]
+}</pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
