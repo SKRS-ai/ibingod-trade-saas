@@ -7,142 +7,140 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(51, 65, 85, 1); }
-        .bg-grid { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
-        .command-card:hover { border-color: #3b82f6; transform: translateY(-2px); transition: all 0.3s ease; }
+        body { background-color: #020617; }
+        .product-card { 
+            background: rgba(30, 41, 59, 0.4); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover { 
+            border-color: #3b82f6; 
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            transform: translateY(-5px);
+        }
+        .locked-badge {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
     </style>
 </head>
-<body class="bg-[#020617] text-slate-300 font-sans bg-grid min-h-screen">
+<body class="text-slate-200 min-h-screen">
 
-    <nav class="sticky top-0 z-50 p-5 flex justify-between items-center glass">
-        <div class="flex items-center gap-2">
-            <div class="w-2 h-8 bg-blue-600 rounded-full"></div>
-            <h1 class="text-2xl font-black tracking-tighter text-white">IBINGOD <span class="text-blue-500 font-light">TRADE</span></h1>
+    <nav class="border-b border-slate-800 p-6 flex justify-between items-center bg-[#0f172a]">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-1 bg-blue-600 rounded-full"></div>
+            <h1 class="text-2xl font-black text-white tracking-tighter uppercase">Ibingod <span class="text-blue-500 font-light">Network</span></h1>
         </div>
-        <div data-netlify-identity-menu class="flex gap-4 items-center"></div>
+        <div data-netlify-identity-menu></div>
     </nav>
 
-    <main id="logged-out-view" class="hidden">
-        <header class="py-32 text-center px-6">
-            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-500/10 rounded-full border border-blue-500/20">
-                2026 Trade Intelligence Now Live
+    <main class="max-w-7xl mx-auto py-12 px-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="product-card p-6 rounded-2xl">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Global Intensity Index</p>
+                <p class="text-3xl font-mono font-bold text-green-400 mt-2">114.2% <span class="text-sm font-normal text-slate-500">↑</span></p>
             </div>
-            <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight">
-                Control the Chaos of <br><span class="text-blue-600">Global Commerce.</span>
-            </h2>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
-                Join an elite network of traders using our proprietary **Intensity Index** to predict shipping bottlenecks before they happen.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <button onclick="netlifyIdentity.open('signup')" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all">
-                    Initialize Access
-                </button>
-                <a href="#solutions" class="flex items-center justify-center border border-slate-700 hover:bg-slate-800 text-white px-10 py-4 rounded-xl font-bold transition-all">
-                    View Product Stack
-                </a>
+            <div class="product-card p-6 rounded-2xl">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Active Trade Routes</p>
+                <p class="text-3xl font-mono font-bold text-white mt-2">1,248</p>
             </div>
-        </header>
-
-        <section id="solutions" class="max-w-7xl mx-auto px-6 pb-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 bg-[#0f172a] rounded-2xl border border-slate-800">
-                <h4 class="text-white font-bold mb-2">Trade Pro</h4>
-                <p class="text-sm text-slate-500 mb-6">Real-time data for the modern merchant.</p>
-                <a href="/products/pro" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-blue-400">Zoom In & Explore →</a>
+            <div class="product-card p-6 rounded-2xl">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">System Status</p>
+                <p class="text-3xl font-mono font-bold text-blue-500 mt-2 uppercase">Secure</p>
             </div>
-            <div class="p-8 bg-[#0f172a] rounded-2xl border border-slate-800">
-                <h4 class="text-white font-bold mb-2">Global Vault</h4>
-                <p class="text-sm text-slate-500 mb-6">Legal templates and compliance tools.</p>
-                <a href="/products/vault" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-blue-400">Zoom In & Explore →</a>
-            </div>
-            <div class="p-8 bg-[#0f172a] rounded-2xl border border-slate-800">
-                <h4 class="text-white font-bold mb-2">Institutional API</h4>
-                <p class="text-sm text-slate-500 mb-6">Raw data feeds for enterprise systems.</p>
-                <a href="/products/api" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-blue-400">Zoom In & Explore →</a>
-            </div>
-        </section>
-    </main>
-
-    <main id="logged-in-view" class="hidden container mx-auto px-6 py-12">
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-            <div>
-                <p class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-1">Authenticated Session</p>
-                <h2 class="text-4xl font-bold text-white">Command Center</h2>
-                <p class="text-slate-500 mt-1">Authorized User: <span id="user-display" class="text-slate-200">...</span></p>
-            </div>
-            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 flex gap-8">
-                <div class="text-center px-4">
-                    <p class="text-[10px] text-slate-500 uppercase font-bold">Live Index</p>
-                    <p class="text-2xl font-mono font-bold text-green-400">114.2%</p>
-                </div>
-                <div class="text-center px-4 border-l border-slate-800">
-                    <p class="text-[10px] text-slate-500 uppercase font-bold">Network Status</p>
-                    <p class="text-2xl font-mono font-bold text-blue-400 uppercase">Secure</p>
-                </div>
-            </div>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <a href="intensity-index.html" class="command-card p-6 bg-[#0f172a] border border-slate-800 rounded-2xl group">
-                <span class="text-3xl">📉</span>
-                <h4 class="font-bold text-white mt-4">Trade Intensity</h4>
-                <p class="text-xs text-slate-500 mt-1">Real-time Volume Data</p>
-            </a>
-            <a href="vault.html" class="command-card p-6 bg-[#0f172a] border border-slate-800 rounded-2xl group">
-                <span class="text-3xl">🔓</span>
-                <h4 class="font-bold text-white mt-4">The Global Vault</h4>
-                <p class="text-xs text-slate-500 mt-1">Instant PDF Downloads</p>
-            </a>
-            <a href="intel.html" class="command-card p-6 bg-[#0f172a] border border-slate-800 rounded-2xl group">
-                <span class="text-3xl">📡</span>
-                <h4 class="font-bold text-white mt-4">Intelligence Feed</h4>
-                <p class="text-xs text-slate-500 mt-1">Member Commentary</p>
-            </a>
-            <a href="api.html" class="command-card p-6 bg-[#0f172a] border border-slate-800 rounded-2xl group">
-                <span class="text-3xl">🔑</span>
-                <h4 class="font-bold text-white mt-4">Developer Keys</h4>
-                <p class="text-xs text-slate-500 mt-1">API Documentation</p>
-            </a>
         </div>
 
-        <div class="bg-[#0f172a] border border-slate-800 rounded-2xl overflow-hidden">
-            <div class="p-4 bg-slate-900 border-b border-slate-800 text-xs font-bold tracking-widest text-slate-500 uppercase">
-                Recent Intelligence Alerts
-            </div>
-            <div class="p-6 space-y-4 font-mono text-sm">
-                <div class="flex gap-4">
-                    <span class="text-blue-500 font-bold">[SYS]</span>
-                    <span class="text-slate-500">2026-03-14 09:00</span>
-                    <span class="text-slate-300">Compliance Toolkit v2.1 uploaded to Vault.</span>
+        <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 px-2">Your Intelligence Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">📉</span>
+                        <span class="locked-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter" id="lock-1">Restricted</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Trade Pro Dashboard</h3>
+                    <p class="text-slate-400 text-sm mt-2">Real-time velocity and volume tracking for global shipping giants.</p>
                 </div>
-                <div class="flex gap-4">
-                    <span class="text-green-500 font-bold">[IDX]</span>
-                    <span class="text-slate-500">2026-03-14 08:30</span>
-                    <span class="text-slate-300">Maersk-B volume spike detected. Adjusting Index...</span>
-                </div>
+                <a href="intensity-index.html" class="mt-8 block text-center bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-bold transition-all">Launch Data Feed</a>
             </div>
+
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🔓</span>
+                        <span class="locked-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter" id="lock-2">Restricted</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">The Global Vault</h3>
+                    <p class="text-slate-400 text-sm mt-2">Downloadable compliance checklists, legal templates, and audit kits.</p>
+                </div>
+                <a href="products/vault.html" class="mt-8 block text-center bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-bold transition-all">Zoom In: Vault</a>
+            </div>
+
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">📡</span>
+                        <span class="locked-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter" id="lock-3">Restricted</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Trade Intel Feed</h3>
+                    <p class="text-slate-400 text-sm mt-2">Daily commentary and insider "pings" on market-moving events.</p>
+                </div>
+                <a href="intel.html" class="mt-8 block text-center bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-bold transition-all">Open Feed</a>
+            </div>
+
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🔑</span>
+                        <span class="locked-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter" id="lock-4">Enterprise Only</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Institutional API</h3>
+                    <p class="text-slate-400 text-sm mt-2">Direct JSON data access for hedge funds and logistics ERPs.</p>
+                </div>
+                <a href="products/api.html" class="mt-8 block text-center bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-bold transition-all">Zoom In: API Docs</a>
+            </div>
+
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">🧮</span>
+                        <span class="locked-badge px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter" id="lock-5">Restricted</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Risk Calculators</h3>
+                    <p class="text-slate-400 text-sm mt-2">Interactive tools for Landed Cost and Volatility Exposure.</p>
+                </div>
+                <a href="tools.html" class="mt-8 block text-center bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-bold transition-all">Access Tools</a>
+            </div>
+
+            <div class="product-card p-8 rounded-3xl flex flex-col justify-between border-blue-500/30">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-4xl">💼</span>
+                        <span class="bg-blue-500/10 text-blue-500 border border-blue-500/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Open</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Custom Audit</h3>
+                    <p class="text-slate-400 text-sm mt-2">1-on-1 strategy sessions for high-volume trade optimization.</p>
+                </div>
+                <a href="mailto:support@ibingodtrade.com" class="mt-8 block text-center bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-bold transition-all">Request Quote</a>
+            </div>
+
         </div>
     </main>
 
     <script>
-        const outView = document.getElementById('logged-out-view');
-        const inView = document.getElementById('logged-in-view');
-        const userDisplay = document.getElementById('user-display');
-
-        function toggleInterface(user) {
-            if (user) {
-                outView.style.display = 'none';
-                inView.style.display = 'block';
-                userDisplay.innerText = user.email;
-            } else {
-                outView.style.display = 'block';
-                inView.style.display = 'none';
+        netlifyIdentity.on('login', user => {
+            // Unlock all badges when someone logs in
+            for(let i=1; i<=5; i++){
+                const badge = document.getElementById('lock-' + i);
+                badge.innerText = "Access Granted";
+                badge.classList.remove('locked-badge');
+                badge.classList.add('bg-green-500/10', 'text-green-500', 'border-green-500/20');
             }
-        }
-
-        // Initialize Netlify Identity
-        netlifyIdentity.on('init', user => toggleInterface(user));
-        netlifyIdentity.on('login', user => toggleInterface(user));
-        netlifyIdentity.on('logout', () => toggleInterface(null));
+        });
     </script>
 </body>
 </html>
